@@ -3,7 +3,7 @@
     <h2> {{ .Title }} </h2>
     <strong>Tags: </strong>
     {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> {{ $value }}</button>
+    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
     {{ end }}
     {{ if ne (trim .Content " ") "" }}
     {{ .Content }}
