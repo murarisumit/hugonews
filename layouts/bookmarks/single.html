@@ -6,7 +6,7 @@
             href='#'>{{ replace $site.Host "www." "" }}</a>)</span> </p>
     </h2>
     {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> {{ $value }}</button>
+    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
     {{ end }}
     {{ if ne (trim .Content " ") "" }}
     {{ .Content }}
