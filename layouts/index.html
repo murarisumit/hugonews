@@ -11,8 +11,8 @@
                     <!-- post -->
                     <p class="item__urls"><a href="{{ .RelPermalink }}">{{ .Title }}</a> 
                     {{ if eq .Section "bookmarks" }}
-                    {{ $site := urls.Parse .Params.ItemUrl }}
-                    <span class="item__siteurl">(<a
+                        {{ $site := urls.Parse .Params.ItemUrl }}
+                        <span class="item__siteurl">(<a
                                 href='sites/{{ replace $site.Host "www." "" }}'>{{ replace $site.Host "www." "" }}</a>)</span>  
                     {{ end }}
                     </p>
@@ -23,12 +23,12 @@
                         <span class="post_age" pdate="{{ .Lastmod.Format "January 2, 2006"  }}"> </span>
                         <!-- works but month daate inverted <span class="post_age" pdate="{{ .Date.Format "2006&#45;03&#45;01" }}"> </span> -->
                         {{ range .Params.tags }}
-                        <a class="item__tag" href="tags/{{- replace . " " "-" -}}">{{- . -}}</a>
+                            <a class="item__tag" href="tags/{{- replace . " " "-" -}}">{{- . -}}</a>
                         {{- end }}
                         {{ if eq .Section "bookmarks" }}
-                        {{ if ne (trim .Content " ") "" }}
-                        <a class="item__notes" href="{{ .RelPermalink }}">notes</a>
-                        {{ end }}
+                            {{ if ne (trim .Content " ") "" }}
+                                <a class="item__notes" href="{{ .RelPermalink }}">notes</a>
+                            {{ end }}
                         {{ end }}
                         <a class="item__section" href="{{ .Section }}"> {{ .Section }}</a>
                     </p>
