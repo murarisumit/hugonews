@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +8,3 @@
     <script src="{{ "js/utils/age.js" | relURL }}"> </script>
     {{ partial "meta" . }}
 </head>
-
-<body onload="update_post_age()">
-    <header id="header">
-        <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-        <nav>
-            <ul>
-                <li><a href="{{ "tags" | relURL }}">tags</a></li>
-                <li><a href="{{ "category" | relURL }}">sections</a></li>
-                <li><a href="https://stackoverflow.com/users/story/2735833" target="_blank">me</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="main">

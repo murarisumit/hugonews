@@ -1,15 +1,27 @@
-{{ partial "header.html" . }}
-<article class="single">
-    <h2> {{ .Title }} </h2>
-    <strong>Tags: </strong>
-    {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
-    {{ end }}
-    {{ if ne (trim .Content " ") "" }}
-    {{ .Content }}
-    {{ else }}
-    <p>No written notes for this article.</p>
-    {{ end }}
-</article>
-{{ partial "comments.html" . }}
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "header.html" . }}
+    <body onload="update_post_age()">
+        {{ partial "navbar.html" . }}
+        <main id="main">
+            <article class="single">
+                <h2> {{ .Title }} </h2>
+                <strong>Tags: </strong>
+                {{ range $key, $value := .Params.tags }}
+                <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
+                {{ end }}
+                {{ if ne (trim .Content " ") "" }}
+                {{ .Content }}
+                {{ else }}
+                <p>No written notes for this article.</p>
+                {{ end }}
+            </article>
+            {{ partial "further_read.html" . }} <br/>
+            {{ partial "comments.html" . }} <br/>
+
+            <footer> 
+                {{ partial "footer.html" . }}
+            </footer>
+        </main>
+    </body>
+</html>

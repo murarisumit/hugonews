@@ -1,18 +1,31 @@
-{{ partial "header.html" . }}
-<article class="single">
-    {{ $site := urls.Parse .Params.ItemUrl }}
-    <h2>
-        <p class="item__urls"><a href="{{ .Params.ItemUrl }}">{{ .Title }}</a> <span class="item__siteurl">(<a
-            href='#'>{{ replace $site.Host "www." "" }}</a>)</span> </p>
-    </h2>
-    {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
-    {{ end }}
-    {{ if ne (trim .Content " ") "" }}
-    {{ .Content }}
-    {{ else }}
-    <p>have not written any notes for this article.</p>
-    {{ end }}
-</article>
-{{ partial "comments.html" . }}
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "header.html" . }}
+    <body onload="update_post_age()">
+        {{ partial "navbar.html" . }}
+        <main id="main">
+            <article class="single">
+                {{ $site := urls.Parse .Params.ItemUrl }}
+                <h2>
+                    <p class="item__urls"><a href="{{ .Params.ItemUrl }}">{{ .Title }}</a> <span class="item__siteurl">(<a
+                        href='#'>{{ replace $site.Host "www." "" }}</a>)</span> </p>
+                </h2>
+                {{ partial "frontmatter.html" . }}
+
+                {{ if ne (trim .Content " ") "" }}
+                    {{ .Content }}
+                {{ else }}
+                    <p>have not written any notes for this article.</p>
+                {{ end }}
+            </article>
+
+            {{ partial "further_read.html" . }} <br/>
+            
+            {{ partial "comments.html" . }} <br/>
+
+            <footer> 
+                {{ partial "footer.html" . }}
+            </footer>
+        </main>
+    </body>
+</html>
