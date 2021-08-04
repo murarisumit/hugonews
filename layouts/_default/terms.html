@@ -1,9 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
 {{ partial "header.html" . }}
-<ol>
-    {{ range $key, $value := .Data.Terms.Alphabetical }}
-    <li class="item">
-        <p class="item__urls"><a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a><span class="item__count">({{ $value.Count }})</span></p>
-    </li>
-    {{ end }}
-</ol>
-{{ partial "footer.html" . }}
+    <body>
+        {{ partial "navbar.html" . }}
+        <main id="main">
+            <ol>
+                {{ range $key, $value := .Data.Terms.Alphabetical }}
+                <li class="item">
+                    <p class="item__urls"><a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a><span class="item__count">({{ $value.Count }})</span></p>
+                </li>
+                {{ end }}
+            </ol>
+            <footer>
+                {{ partial "footer.html" . }}
+            </footer>
+        </main>
+    </body>
+</html>
