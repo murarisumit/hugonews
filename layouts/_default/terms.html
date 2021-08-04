@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 <ol>
-    {{ range $key, $value := .Data.Terms.ByCount }}
+    {{ range $key, $value := .Data.Terms.Alphabetical }}
     <li class="item">
         <p class="item__urls"><a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a><span class="item__count">({{ $value.Count }})</span></p>
     </li>
