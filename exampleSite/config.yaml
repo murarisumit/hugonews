@@ -1,0 +1,32 @@
+baseURL: "https://example.com/"
+author: 
+languageCode: "en-us"
+title: "hugonews example site"
+description: "descirption My knowledge base, place where my tils and bookmarks reside"
+paginate: 20
+theme: "hugonews"
+
+taxonomies:
+  tag: "tags"
+  category: "category"
+  site: "sites"
+  year: "year"
+  month: "month"
+
+contentDir: "content"
+enableGitInfo: true
+
+pygmentsStyle: "vs"
+#pygmentsStyle: "monokai"
+pygmentsCodefencesGuessSyntax: true
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+pygmentsOptions: "linenos=true,tabWidth=2"
+params:
+  email: "email@domain.in"
+  custom_css: 
+    - "css/override.css"
+  social:
+    twitter: true
+    hackernews: true
+    email: true
