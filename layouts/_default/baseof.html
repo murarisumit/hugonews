@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "header.html" . }}
+    <body onload="update_post_age()">
+        {{ partial "navbar.html" . }}
+        <main id="main">
+          {{ block "main" . }}
+            <!-- The part of the page that begins to differ between templates -->
+          {{ end }}
+          
+          <footer>
+            {{ partial "footer.html" . }}
+          </footer>
+        </main>
+    </body>
+</html>
+

@@ -2,7 +2,8 @@
     <hr/>
     {{ if ne .Date .PublishDate }} Modified:&nbsp; &nbsp;{{ .Date |  time.Format ":date_long"}} <br/>{{ end }}
     Published:&nbsp;&nbsp; {{ .PublishDate | time.Format ":date_long" }} <br/>
-    <br/>Tags: {{ range $key, $value := .Params.tags }}
+    <br/>
+    <i> Tags:</i> {{ range $key, $value := .Params.tags }}
     <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
     {{ end }}
     <hr>
