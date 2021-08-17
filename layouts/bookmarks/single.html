@@ -6,7 +6,7 @@
                     href='#'>{{ replace $site.Host "www." "" }}</a>)</span> </p>
     </h2>
     {{ partial "frontmatter.html" . }}
-    
+    Reference item: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
     {{ if ne (trim .Content " ") "" }}
     {{ .Content }}
     {{ else }}
