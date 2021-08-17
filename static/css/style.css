@@ -5,7 +5,7 @@
 body {
     align-items: center;
     display: flex;
-    font:.8rem/1rem Verdana, Geneva, Tahoma, sans-serif;
+    font:.81rem/1rem Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
     flex-direction: column;
     justify-content: center;
 }
@@ -24,8 +24,9 @@ blockquote {
 #header {
     background: #ee6f2d;
     font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1rem;
     width: 960px;
+    font-size: 0.81rem;
 }
 
 #header {
@@ -34,7 +35,7 @@ blockquote {
 }
 
 #header h1 {
-    font-size: 0.8rem;
+    font-size: 0.81rem;
     margin: 0;
 }
 
@@ -66,12 +67,13 @@ nav a {
 
 .item__urls {
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* 'Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif; /* 'Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 .item__urls > a:first-child {
     color: #11a;
     text-decoration: none;
+    line-height: 1.3rem
 }
 
 .item__siteurl,
