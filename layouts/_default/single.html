@@ -17,7 +17,7 @@
 
     <!-- If it has bookmark then it better to put reference bookmark, other than title-->
     {{ if isset .Params "itemurl" }}
-    Bookmark: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
+    Reference: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
     {{ end }}
 
     {{ if ne (trim .Content " ") "" }}
