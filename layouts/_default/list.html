@@ -3,18 +3,15 @@
     <ol start={{ $start }}>
         {{ range .Paginator.Pages }}
             <li class="item">
-            {{ if isset .Params "itemurl" }}
-                {{ $site := urls.Parse .Params.ItemUrl }}
-                    <p class="item__urls">
-                        <a href="{{ .Params.ItemUrl }}">{{ .Title }}</a> 
-                        <span class="item__siteurl">(
-                            <a href='/sites/{{ replace $site.Host "www." "" }}'>{{ replace $site.Host "www." "" }}</a>)
-                        </span>
-                    </p>
-            {{ else }}
-            <!-- for tils -->
-                <p class="item__urls"><a href="{{ .Permalink }}">{{ .Title }}</a> </p>
-            {{ end }}
+                <p class="item__urls">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a> 
+                    {{ if isset .Params "itemurl" }}
+                    {{ $site := urls.Parse .Params.ItemUrl }}       
+                    <span class="item__siteurl">(
+                        <a href='/sites/{{ replace $site.Host "www." "" }}'>{{ replace $site.Host "www." "" }}</a>)
+                    </span>
+                    {{ end }}
+                </p>
             <p class="item__meta">
             <span class="post_age" pdate="{{ .Lastmod.Format "January 2, 2006"  }}"> </span>
             {{ range .Params.tags }}
