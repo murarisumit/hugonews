@@ -22,14 +22,11 @@ blockquote {
 }
 
 #header {
-    background: #ee6f2d;
+    background: #FF6600;
     font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
     padding: 0.6rem 1rem;
     width: 960px;
     font-size: 0.81rem;
-}
-
-#header {
     display: flex;
     justify-content: space-between;
 }
@@ -86,7 +83,6 @@ nav a {
 
 .item__meta {
     font-size: .6rem;
-    margin-top: 0;
     margin: 0;
 }
 

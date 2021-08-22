@@ -7,10 +7,10 @@
 <meta property="og:site_name" content="{{ .Site.Params.sitename }}" />
 
 <!--  Description Tags-->
-<meta name="description" content="{{ .Params.description }}" />
-<meta itemprop="description" content="{{ .Params.description }}" />
-<meta property="og:description" content="{{ .Params.description }}" />
-<meta name="twitter:description" content="{{ .Params.description }}" />
+<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{ .Params.summary }}{{end}}" />
+<meta itemprop="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{ .Params.summary }}{{end}}" />
+<meta property="og:description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{ .Params.Summary }}{{end}}" />
+<meta name="twitter:description" content="{{ .Params.summary }}" />
 
 <!-- Link Tags -->
 <base href="{{ .Permalink }}">
