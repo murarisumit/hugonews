@@ -5,7 +5,7 @@
 body {
     align-items: center;
     display: flex;
-    font:.81rem/1rem Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
+    font:.85rem/1rem Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
     flex-direction: column;
     justify-content: center;
 }
@@ -22,11 +22,11 @@ blockquote {
 }
 
 #header {
-    background: #FF6600;
+    background: #a9cafc;
     font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
     padding: 0.6rem 1rem;
     width: 960px;
-    font-size: 0.81rem;
+    font-size: .87rem;
     display: flex;
     justify-content: space-between;
 }
