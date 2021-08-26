@@ -77,12 +77,12 @@ nav a {
 .item__siteurl > *,
 .item__count {
     color: #828282;
-    font-size: .7rem;
+    font-size: .8rem;
     text-decoration: none;
 }
 
 .item__meta {
-    font-size: .6rem;
+    font-size: .7rem;
     margin: 0;
 }
 
