@@ -8,7 +8,7 @@
                     {{ if isset .Params "itemurl" }}
                     {{ $site := urls.Parse .Params.ItemUrl }}       
                     <span class="item__siteurl">(
-                        <a href='/sites/{{ replace $site.Host "www." "" }}'>{{ replace $site.Host "www." "" }}</a>)
+                        <a href='/sites/{{ .Params.sites }}'>{{ .Params.sites }}</a>)
                     </span>
                     {{ end }}
                 </p>

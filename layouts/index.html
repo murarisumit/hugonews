@@ -13,7 +13,7 @@
                     {{ if eq .Section "bookmarks" }}
                         {{ $site := urls.Parse .Params.ItemUrl }}
                         <span class="item__siteurl">(<a
-                                href='sites/{{ replace $site.Host "www." "" }}'>{{ replace $site.Host "www." "" }}</a>)</span>  
+                                href='sites/{{ .Params.Sites }}'>{{ .Params.Sites }}</a>)</span>  
                     {{ end }}
                     </p>
                     <!-- post -->
