@@ -15,9 +15,10 @@
     {{ end }}
     {{ partial "frontmatter.html" . }}
 
-    <!-- If it has bookmark then it better to put reference bookmark, other than title-->
+    <!-- If it has bookmark then it better to put reference bookmark, other than set in title-->
     {{ if isset .Params "itemurl" }}
-    Reference: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
+    Bookmark for: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
+    <hr/>
     {{ end }}
 
     {{ if ne (trim .Content " ") "" }}
