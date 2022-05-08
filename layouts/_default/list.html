@@ -6,9 +6,8 @@
                 <p class="item__urls">
                     <a href="{{ .Permalink }}">{{ .Title }}</a> 
                     {{ if isset .Params "itemurl" }}
-                    {{ $site := urls.Parse .Params.ItemUrl }}       
-                    <span class="item__siteurl">(
-                        <a href='/sites/{{ .Params.sites }}'>{{ .Params.sites }}</a>)
+                    {{ $url := urls.Parse .Params.ItemUrl }}       
+                    <span class="item__siteurl">(<a href='/sites/{{ $url.Host }}'>{{ $url.Host }}</a>)
                     </span>
                     {{ end }}
                 </p>

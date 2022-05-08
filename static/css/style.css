@@ -132,4 +132,41 @@ ul.pagination li.active a {
     #footer {
         width: 100%;
     }
+    .tagcloud {
+        display: none;
+    }
+}
+
+.tagcloud {
+    width: 27%;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    float: right;
+    text-align: right;
+}
+
+.tag-item {
+    display: inline-block;
+    
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #fafafa;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+#archives-header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
+    padding: 0.6rem 1rem;
+    width: 960px;
+    font-size: 1rem;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+
 }

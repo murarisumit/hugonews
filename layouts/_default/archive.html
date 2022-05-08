@@ -1,32 +1,43 @@
 {{ define "main" }}
-<h1>Archives</h1>
+<h1 id="archives-header">Archives</h1>
 {{ .Content }}
 
-<h2>By Date</h2>
-<ul class="archives-list">
-	{{ range $name, $taxonomy := .Site.Taxonomies.month }} {{- $cnt := .Count -}}
-	  {{- with $.Site.GetPage (printf "%s" $name) -}}
-          <li><a href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a> ({{$cnt}})</li>
-	  {{ end }}
-	{{- end -}}
-</ul>
 
-<h2>By Category</h2>
-<ul class="archives-list">
-	{{ range $name, $taxonomy := .Site.Taxonomies.categories }} {{- $cnt := .Count -}}
-	  {{- with $.Site.GetPage (printf "/categories/%s" $name) -}}
-          <li><a href="{{ .RelPermalink }}" title="All posts in category &lsquo;{{ .Title }}&rsquo;">{{ .Title }}</a> ({{$cnt}})</li>
-	  {{ end }}
-	{{- end -}}
-</ul>
+<div id="archives-header">By Date</div>
 
-<h2>By Tag</h2>
-<ul class="archives-list">
-	{{ range $name, $taxonomy := .Site.Taxonomies.tags }} {{- $cnt := .Count -}}
-	  {{- with $.Site.GetPage (printf "/tags/%s" $name) -}}
-          <li><a href="{{ .RelPermalink }}" title="All posts with tag &lsquo;{{ .Title }}&rsquo;">{{ .Title }}</a> ({{$cnt}})</li>
-	  {{ end }}
-	{{- end -}}
-</ul>
+{{ range $name, $taxonomy := .Site.Taxonomies.month }} {{- $cnt := .Count -}}
+	{{- with $.Site.GetPage (printf "%s" $name) -}}
+		<a class="tag-item"  href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a><sup>({{$cnt}})</sup>
+	{{ end }}
+{{- end -}}
+
+<hr/>
+
+<div id="archives-header">By Category</div>
+
+{{ range $name, $taxonomy := .Site.Taxonomies.category }} {{- $cnt := .Count -}}
+	{{- with $.Site.GetPage (printf "/category/%s" $name) -}}
+		<a class="tag-item" title="All posts with tag &lsquo;{{ .Title }}&rsquo;" href="{{ .RelPermalink }}">{{ .Title }}<sup>({{$cnt}})</sup> </a>
+	{{ end }}
+{{- end -}}
+
+<hr/>
+<div id="archives-header">By Tag</div>
+
+<div id="theme-tagcloud" class="col-sm-12" style="margin-bottom: 15px;">
+    {{ $tags := $.Site.Taxonomies.tags.ByCount }}
+    {{ $v1 := where $tags "Count" ">=" 1 }}
+    {{ $v2 := where $v1 "Term" "not in" (slice "hugo" "tags" "rss") }}
+    {{ range $v2 }}
+    {{ if .Term }}
+    {{ $tagURL := printf "tags/%s" .Term | relURL }}
+    <a href="{{ $tagURL }}" class="btn btn-default tag-item" role="button" 
+        style="text-transform: uppercase;">{{ .Term }} <sup> <span
+            class="badge">({{ .Count }})</span></sup></a>
+    {{ end }}
+    {{ end }}
+</div>
+
+<hr/>
 
 {{ end }}
