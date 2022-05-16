@@ -1,15 +1,24 @@
 {{ define "main" }}
 <article class="single">
-    {{ if isset .Params "itemurl" }}
-    {{ $site := urls.Parse .Params.ItemUrl }}
-    <h2>
-        <p class="item__urls">
-            <a href="{{ .Params.ItemUrl }}">{{ .Title }}</a> 
-            <span class="item__siteurl">
-                (<a href='#'>{{ replace $site.Host "www." "" }}</a>)
-            </span> 
-        </p>
-    </h2>
+    {{ if isset .Params "sites" }}
+        <h2>
+            <p class="item__urls">
+                {{ .Title }}
+                <span class="item__siteurl">
+                    (<a href='#'>{{ replace .Params.sites "www." "" }}</a>)
+                </span> 
+            </p>
+        </h2>        
+    {{ else if isset .Params "itemurl" }}
+        {{ $site := urls.Parse .Params.ItemUrl }}
+        <h2>
+            <p class="item__urls">
+                {{ .Title }}
+                <span class="item__siteurl">
+                    (<a href='#'>{{ replace $site.Host "www." "" }}</a>)
+                </span> 
+            </p>
+        </h2>
     {{ else }}
     <h2> {{ .Title }} </h2>
     {{ end }}
