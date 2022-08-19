@@ -4,6 +4,7 @@
 <!-- Reference : https://sharingbuttons.io/ -->
 <link rel="stylesheet" href="{{ "css/sharingbuttons.css" | relURL }}" />
 
+<script src="{{ "js/utils/darkmode.js" | relURL }}"> </script>
 {{ range .Site.Params.custom_css -}}
     <link rel="stylesheet" href="{{ . | relURL }}">
 {{- end }}
