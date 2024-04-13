@@ -4,9 +4,9 @@
         <h2>
             <p class="item__urls">
                 {{ .Title }}
-                <span class="item__siteurl">
+                <!-- <span class="item__siteurl">
                     (<a href='#'>{{ replace .Params.sites "www." "" }}</a>)
-                </span> 
+                </span>  -->
             </p>
         </h2>        
     {{ else if isset .Params "itemurl" }}
@@ -26,7 +26,7 @@
 
     <!-- If it has bookmark then it better to put reference bookmark, other than set in title-->
     {{ if isset .Params "itemurl" }}
-    Bookmark for: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
+    Ref: <a href="{{ .Params.ItemUrl }}">{{ .Params.ItemUrl }}</a>
     <hr/>
     {{ end }}
 
