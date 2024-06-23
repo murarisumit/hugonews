@@ -18,6 +18,11 @@ blockquote {
     border-left: 0.2rem solid #ccc;
 }
 
+code {
+    font-size: small;
+    font-style: italic;
+}
+
 .item {
     margin-bottom: 0.6rem;
 }
