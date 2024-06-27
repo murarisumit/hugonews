@@ -30,12 +30,15 @@
     <hr/>
     {{ end }}
 
+    <div class="content">
     {{ if ne (trim .Content " ") "" }}
     {{ .Content }}
     {{ else }}
     <p>No written notes for this article.</p>
     {{ end }}
+    <br/> {{ partial "feedback.html" . }} <br />
     {{ partial "social.html" . }} <br />
+    </div>
 </article>
 {{ partial "further-read.html" . }} <br />
 {{ partial "comments.html" . }} <br />

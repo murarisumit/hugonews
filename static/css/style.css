@@ -129,6 +129,13 @@ ul.pagination li.active a {
     border-color: orange;
 }
 
+@media (min-width: 550px) {
+    .content {
+        margin: 0 auto;
+        padding: 1rem
+    } 
+}
+
 .single {
     padding: 1rem;
 }
@@ -176,4 +183,32 @@ ul.pagination li.active a {
     font-weight: bold;
     justify-content: space-between;
 
+}
+
+h3, h4, h5, h6{
+    text-decoration: dotted underline;
+}
+
+
+details {
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0.5em;
+}
+
+/* Optional: Toggle arrow for summary */
+summary::-webkit-details-marker {
+    display: none;
+}
+summary:before {
+    content: '▶';
+    padding-right: 0.5em;
+}
+details[open] summary:before {
+    content: '▼';
 }
