@@ -7,7 +7,7 @@
 
 {{ range $name, $taxonomy := .Site.Taxonomies.month }} {{- $cnt := .Count -}}
 	{{- with $.Site.GetPage (printf "%s" $name) -}}
-		<a class="tag-item"  href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a><sup>({{$cnt}})</sup>
+		<a class="taxonomy"  href="{{ .RelPermalink }}" title="All posts from {{ .Title }}">{{ .Title }}</a><sup>({{$cnt}})</sup>
 	{{ end }}
 {{- end -}}
 
@@ -17,7 +17,7 @@
 
 {{ range $name, $taxonomy := .Site.Taxonomies.category }} {{- $cnt := .Count -}}
 	{{- with $.Site.GetPage (printf "/category/%s" $name) -}}
-		<a class="tag-item" title="All posts with tag &lsquo;{{ .Title }}&rsquo;" href="{{ .RelPermalink }}">{{ .Title }}<sup>({{$cnt}})</sup> </a>
+		<a class="taxonomy" title="All posts with tag &lsquo;{{ .Title }}&rsquo;" href="{{ .RelPermalink }}">{{ .Title }}<sup>({{$cnt}})</sup> </a>
 	{{ end }}
 {{- end -}}
 
@@ -31,7 +31,7 @@
     {{ range $v2 }}
     {{ if .Term }}
     {{ $tagURL := printf "tags/%s" .Term | relURL }}
-    <a href="{{ $tagURL }}" class="btn btn-default tag-item" role="button" 
+    <a href="{{ $tagURL }}" class="btn btn-default taxonomy" role="button" 
         style="text-transform: uppercase;">{{ .Term }} <sup> <span
             class="badge">({{ .Count }})</span></sup></a>
     {{ end }}

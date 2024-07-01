@@ -150,12 +150,12 @@ ul.pagination li.active a {
     #footer {
         width: 100%;
     }
-    .tagcloud {
+    .sidecloud {
         display: none;
     }
 }
 
-.tagcloud {
+.sidecloud {
     width: 27%;
     margin-top: 1rem;
     padding-top: 2rem;
@@ -164,7 +164,7 @@ ul.pagination li.active a {
     text-align: right;
 }
 
-.tag-item {
+.taxonomy {
     display: inline-block;
     
     padding: 0.25rem 0.5rem;

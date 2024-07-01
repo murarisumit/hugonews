@@ -4,8 +4,14 @@
     <body onload="update_post_age()">
         {{ partial "navbar.html" . }}
         <main id="main">
-            <aside class="tagcloud">
-                {{ partial "tags-cloud.html" . }}
+            <aside class="sidecloud">
+                <div class="category-cloud">
+                    {{ partial "categories-cloud.html" . }}
+                </div>
+                <hr/>
+                <div class="tag-cloud">
+                    {{ partial "tags-cloud.html" . }}
+                </div>
             </aside>
             {{ $start := add (sub (mul .Paginator.PageSize .Paginator.PageNumber) .Paginator.PageSize) 1 }}
             <ol start={{ $start }}>
