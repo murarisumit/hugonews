@@ -1,12 +1,17 @@
 * {
     box-sizing: border-box;
+    font-family: Hermit;
 }
 
+@font-face {
+    font-family: 'Hermit';
+    src: url(./fonts/Hermit-Regular.woff2);
+}
 
 body {
     align-items: center;
     display: flex;
-    font: 1rem Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
+    font: 1rem;
     flex-direction: column;
     justify-content: center;
 }
@@ -30,7 +35,6 @@ code {
 
 #header {
     background: #a9cafc;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
     padding: 0.6rem 1rem;
     width: 960px;
     font-size: .87rem;
@@ -71,7 +75,6 @@ nav a {
 
 .item__urls {
     margin: 0;
-    font-family: Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif; /* 'Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 .item__urls > a:first-child {
@@ -175,7 +178,6 @@ ul.pagination li.active a {
 }
 
 #archives-header {
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Roboto Mono', Verdana, Geneva, Tahoma, sans-serif; */
     padding: 0.6rem 1rem;
     width: 960px;
     font-size: 1rem;
