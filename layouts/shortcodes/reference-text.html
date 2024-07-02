@@ -1,0 +1,9 @@
+{{ $link := .Get "link" | default "false" }}
+<div class="reftext">
+    {{ .Inner | markdownify }}
+    {{ if ne $link "false"}}
+    <div class="reftext-link">
+        <a href="{{ $link }}" style="color: #828282;"> {{ $link }}</a>
+    </div>
+    {{ end }}
+</div>

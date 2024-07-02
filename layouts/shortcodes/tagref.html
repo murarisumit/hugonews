@@ -1,0 +1,6 @@
+{{- $tag_page := site.GetPage (printf "tags/%s" (.Get 0)) -}}
+{{- if $tag_page -}}
+  {{- $tag_page.RelPermalink -}}
+{{- else -}}
+  {{ errorf "No such tag: %s" (.Get 0) }}
+{{- end -}}

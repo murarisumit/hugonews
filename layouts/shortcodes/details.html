@@ -1,5 +1,9 @@
 {{ $open := .Get "open" | default "false" }}
-<details
+{{ $collapsedborder := .Get "collapsedborder" | default "false"}}
+<details class="details" 
+{{ if eq $collapsedborder "true"}}
+    style="border: 1px solid #ccc; border-radius: 5px; padding: 5px;"
+{{ end }}
 {{ if eq $open "true"}}
     open
 {{ end }}

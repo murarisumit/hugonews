@@ -1,0 +1,25 @@
+{{ $open := .Get "open" | default "false" }}
+{{ $h4 := .Get "h4" | default "false" }}
+{{ $h3 := .Get "h3" | default "false" }}
+{{ $collapsedborder := .Get "collapsedborder" | default "false"}}
+<div class="sections">
+    <details class="collapsable-heading " 
+    {{ if eq $collapsedborder "true"}}
+        style="border: 1px solid #ccc; border-radius: 5px; padding: 5px;"
+    {{ end }}
+    {{ if eq $open "true"}}
+        open
+    {{ end }}
+    >
+        <summary> 
+            {{ if ne $h3 "false" }}
+            <h3 class="sections-h3" style="display:inline-block">{{ $h3 }}</h3>
+            {{ end }}
+            {{ if ne $h4 "false" }}
+            <h4 class="sections-h4" style="display:inline-block">{{ $h4 }}</h4>
+            {{ end }}
+            <!-- {{ i18n "click_to_open" | default "Open:" }} -->
+        </summary>
+        {{ .Inner | markdownify }}
+    </details>
+</div> <!-- sections -->

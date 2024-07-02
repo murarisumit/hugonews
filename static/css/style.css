@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: 'happymonkey';
+    src: url(./fonts/HappyMonkey-Regular.ttf);
+}
+
+@font-face {
     font-family: 'Hermit';
     src: url(./fonts/Hermit-Regular.woff2);
 }
@@ -11,7 +16,7 @@
 body {
     align-items: center;
     display: flex;
-    font: 1rem;
+    font-size: 0.95rem;
     flex-direction: column;
     justify-content: center;
 }
@@ -21,12 +26,12 @@ blockquote {
     padding-bottom: 0.01rem;
     padding-left: 1rem;
     border-left: 0.2rem solid #ccc;
+    font-family: hermit;
 }
 
 code {
     font-size: small;
     font-style: italic;
-    
 }
 
 .item {
@@ -44,7 +49,7 @@ code {
 }
 
 #header h1 {
-    font-size: 0.81rem;
+    font-size: 0.95rem;
     margin: 0;
 }
 
@@ -142,6 +147,8 @@ ul.pagination li.active a {
 
 .single {
     padding: 1rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 960px) {
@@ -166,7 +173,6 @@ ul.pagination li.active a {
 
 .taxonomy {
     display: inline-block;
-    
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     background-color: #fafafa;
@@ -192,10 +198,31 @@ h3, h4, h5, h6{
     text-decoration: dotted underline;
 }
 
+details[open] {
+    padding: 0.5rem;
+    outline: 2px solid rgb(43, 65, 46); /* or any color you prefer */
+    outline-offset: -0.5rem;
+}
 
-details {
-    border: 1px solid #ccc;
-    padding: 1rem;
+.reftext {
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    color: #828282;
+    border-left: 2px solid #828282;
+}
+
+.reftext .reftext-link {
+    color: #828282;
+    font-size: small;
+    text-transform: lowercase;
+}
+
+.sections {
+    padding-left: 0.5rem;
+    border: 1px solid #d2d2d2;
+}
+.sections-content {
+    padding-left: 0.5rem;
 }
 
 summary {
