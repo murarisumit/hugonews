@@ -7,7 +7,7 @@
     {{ if .Term }}
     {{ $tagURL := printf "tags/%s" .Term | relURL }}
     <a href="{{ $tagURL }}" class="btn btn-default taxonomy" role="button" 
-        style="text-transform: uppercase;">{{ .Term }} <sup> <span
+        >{{ .Term }} <sup> <span
             class="badge">({{ .Count }})</span></sup></a>
     {{ end }}
     {{ end }}

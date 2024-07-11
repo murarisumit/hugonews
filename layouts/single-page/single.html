@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "header.html" . }}
+    <body onload="update_post_age()">
+        {{ partial "navbar.html" . }}
+        <main id="main">
+            <div class="content">
+
+            
+            <h3> {{ .Title }} </h3>
+            <!-- The part of the page that begins to differ between templates -->
+            {{ if ne (trim .Content " ") "" }}
+            {{ .Content }}
+            {{ else }}
+            <p>No written notes for this article.</p>
+            {{ end }}
+        </div>
+          
+          <footer>
+            {{ partial "footer.html" . }}
+          </footer>
+        </main>
+    </body>
+</html>

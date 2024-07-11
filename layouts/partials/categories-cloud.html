@@ -1,8 +1,7 @@
 <div id="category-cloud" class="col-sm-12" style="margin-bottom: 15px;">
     {{ range $key, $value := $.Site.Taxonomies.category }}
     {{ $categoryURL := printf "%s" $key | relURL }}
-    <a href="{{ $categoryURL }}" class="btn btn-default taxonomy" role="button" 
-        style="text-transform: uppercase;">{{ $key }} <sup> <span
+    <a href="{{ $categoryURL }}" class="btn btn-default taxonomy" role="button">{{ $key }} <sup> <span
             class="badge">({{ .Count }})</span></sup></a>
     {{end }}
 </div>
