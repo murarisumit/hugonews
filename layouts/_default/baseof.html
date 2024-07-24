@@ -12,6 +12,14 @@
             {{ partial "footer.html" . }}
           </footer>
         </main>
+        <script>
+          document.querySelectorAll('code').forEach(function(el) {
+            // Check if the <code> element contains only text (no child elements)
+            if (el.children.length === 0) {
+              el.classList.add('no-inner-tags');
+            }
+          });
+          </script>
     </body>
 </html>
 
