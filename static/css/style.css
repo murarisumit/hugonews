@@ -1,17 +1,14 @@
 * {
     box-sizing: border-box;
-    font-family: Hermit;
-}
-
-@font-face {
-    font-family: 'happymonkey';
-    src: url(./fonts/HappyMonkey-Regular.ttf);
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 @font-face {
     font-family: 'Hermit';
     src: url(./fonts/Hermit-Regular.woff2);
 }
+
+/* Trebuchet MS for prose; Hermit (coding font) kept for code below */
 
 body {
     align-items: center;
@@ -26,7 +23,14 @@ blockquote {
     padding-bottom: 0.01rem;
     padding-left: 1rem;
     border-left: 0.2rem solid #ccc;
-    font-family: hermit;
+}
+
+/* code keeps Hermit; body text is Trebuchet MS.
+   The "pre star" and "code star" selectors are required because the
+   global star rule sets font-family directly on every element
+   (pygments token spans included). */
+pre, code, pre *, code * {
+    font-family: Hermit;
 }
 
 code {

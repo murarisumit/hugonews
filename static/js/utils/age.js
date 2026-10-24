@@ -13,9 +13,16 @@ function get_post_age(postdate) {
     else if (age_days < 30) {
         age_string = age_days + ' days ago';
     }
-    else {
+    else if (age_days >= 30) {
         let age_months = Math.round(difference_ms/one_month);
-        age_string = age_months + ' months ago';
+        if (age_months < 12) {
+            age_string = age_months + ' months ago';
+        }
+        else {
+            let age_years = Math.floor(age_months / 12);
+            let age_rem_months = age_months % 12;
+            age_string = age_rem_months ? age_years + 'y ' + age_rem_months + 'm ago' : age_years + 'y ago';
+        }
     }
     return age_string;
 }
