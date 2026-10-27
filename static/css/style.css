@@ -296,7 +296,8 @@ html {
 @media (min-width: 1200px) {
     .single:has(> .toc) {
         position: relative;
-        max-width: calc(100% - 15rem);
+        max-width: calc(100% - 16rem);  /* text + sidebar fit inside #main */
+        margin-left: 0;
     }
     .single > .toc {
         position: absolute;
