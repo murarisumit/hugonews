@@ -1,10 +1,19 @@
-<div>
-    <hr/>
-    {{ if ne .Date .PublishDate }} Modified:&nbsp; &nbsp;{{ .Date |  time.Format ":date_long"}} <br/>{{ end }}
-    Published:&nbsp;&nbsp; {{ .PublishDate | time.Format ":date_long" }} <br/>
-    <br/>
-    <i> Tags:</i> {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
-    {{ end }}
-    <hr>
+{{- /* One-line post header: date, read time, tags as chips. */ -}}
+<div class="post-meta">
+    <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate | time.Format "2 Jan 2006" }}</time>
+    {{- if ne .Date .PublishDate }}
+    <span aria-hidden="true">·</span>
+    <span>updated <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></span>
+    {{- end }}
+    <span aria-hidden="true">·</span>
+    <span>{{ .ReadingTime }} min read</span>
+    {{- with .Params.tags }}
+    <ul class="tag-chips" aria-label="Tags">
+        {{- range . }}
+        {{- $href := printf "%s%s" ("/tags/" | relLangURL) (urlize .) }}
+        {{- with site.GetPage (printf "/tags/%s" (urlize .)) }}{{ $href = .RelPermalink }}{{ end }}
+        <li><a class="tag-chip" href="{{ $href }}">#{{ . }}</a></li>
+        {{- end }}
+    </ul>
+    {{- end }}
 </div>
