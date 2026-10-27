@@ -365,3 +365,16 @@ html {
 .has-tools pre {
     padding-top: 2rem !important;   /* room for the label and button */
 }
+
+/* ---------- Post tags: rounded tag buttons, as plain links ---------- */
+a.tag-link {
+    display: inline-block;
+    padding: 2px 7px;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    background-color: #ebebeb;
+}
+a.tag-link:focus-visible {
+    outline: 2px solid #1a56db;
+    outline-offset: 2px;
+}
