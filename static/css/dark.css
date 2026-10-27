@@ -12,3 +12,18 @@ body * [style*="background-image"] {
     -webkit-filter: hue-rotate(180deg) contrast(100%) invert(100%);
 }
 
+
+/* Tag chips: undo the page inversion and use a dark green chip.
+   `html` prefix: this file loads before style.css. */
+html .tag-chip {
+    filter: invert(100%) hue-rotate(180deg);
+    -webkit-filter: invert(100%) hue-rotate(180deg);
+    background: #1f3d22;
+    color: #a6e3a9;
+}
+html .tag-chip:hover {
+    background: #29512d;
+}
+html .tag-chip:focus-visible {
+    outline-color: #a6e3a9;
+}

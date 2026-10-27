@@ -264,6 +264,44 @@ html {
     scroll-padding-top: 4rem;   /* anchors don't land under a sticky header */
 }
 
+/* ---------- Post header: date, read time, tag chips ---------- */
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    margin: 0 0 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+    color: #555;
+    font-size: 0.9rem;
+}
+.tag-chips {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.tag-chip {
+    display: inline-block;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(114, 197, 118, 0.18);
+    color: #1f5f23;
+    font-size: 0.82rem;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+.tag-chip:hover {
+    background: rgba(114, 197, 118, 0.35);
+}
+.tag-chip:focus-visible {
+    outline: 2px solid #1f5f23;
+    outline-offset: 2px;
+}
+
 /* ---------- "On this page" ---------- */
 .toc {
     margin: 1rem 0;
