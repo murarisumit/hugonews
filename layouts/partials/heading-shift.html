@@ -1,0 +1,20 @@
+{{- /* How many levels to shift markdown headings so the top-most one renders
+       as <h2> (the post title is the page's <h1>). Posts written with ###
+       sections shift by 1, ## posts are unchanged, # posts shift up by -1.
+       Fenced code is ignored so "# comment" lines don't count. Set
+       `headingShift: false` in front matter to keep levels as written. */ -}}
+{{- $shift := 0 -}}
+{{- if ne .Params.headingShift false -}}
+  {{- with .Store.Get "headingShift" -}}
+    {{- $shift = . -}}
+  {{- else -}}
+    {{- $md := replaceRE "(?ms)^[ \\t]*(```|~~~).*?^[ \\t]*(```|~~~)" "" .RawContent -}}
+    {{- $min := 7 -}}
+    {{- range findRE "(?m)^#{1,6}[ \\t]" $md -}}
+      {{- $min = math.Min $min (len (trim . " \t")) -}}
+    {{- end -}}
+    {{- if lt $min 7 }}{{ $shift = sub (int $min) 2 }}{{ end -}}
+    {{- .Store.Set "headingShift" (string $shift) -}}
+  {{- end -}}
+{{- end -}}
+{{- return (int $shift) -}}

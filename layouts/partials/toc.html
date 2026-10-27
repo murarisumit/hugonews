@@ -1,0 +1,28 @@
+{{- /* "On this page" list. Shown on posts with 3+ sections unless the
+       front matter sets `toc: false`. Folded on small screens, sticky
+       sidebar on wide ones. */ -}}
+{{- if ne .Params.toc false -}}
+{{- $all := partial "toc-flatten.html" .Fragments.Headings -}}
+{{- $min := 7 -}}
+{{- range $all }}{{ $min = math.Min $min .level | int }}{{ end -}}
+{{- $items := where $all "level" "le" (add $min 1) -}}
+{{- if ge (len $items) (.Site.Params.tocMinHeadings | default 3) -}}
+<nav class="toc" aria-label="On this page">
+  <details id="toc-details">
+    <summary>On this page</summary>
+    <ol>
+    {{- range $items }}
+      <li{{ if gt .level $min }} class="toc-sub"{{ end }}><a href="#{{ .id }}">{{ .title | safeHTML }}</a></li>
+    {{- end }}
+    </ol>
+  </details>
+</nav>
+<script>
+  (function () {
+    var d = document.getElementById('toc-details'), mq = matchMedia('(min-width: 1200px)');
+    function sync() { d.open = mq.matches; }
+    sync(); mq.addEventListener('change', sync);
+  })();
+</script>
+{{- end -}}
+{{- end -}}

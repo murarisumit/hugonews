@@ -1,0 +1,6 @@
+{{- $level := .Level -}}
+{{- if .Page.IsPage -}}
+  {{- $level = math.Max 2 (math.Min 6 (sub .Level (partial "heading-shift.html" .Page))) | int -}}
+{{- end -}}
+<h{{ $level }} id="{{ .Anchor }}"{{ range $k, $v := .Attributes }}{{ if ne $k "id" }} {{ $k }}="{{ $v }}"{{ end }}{{ end }}>{{ .Text }}</h{{ $level }}>
+{{- /* newline */}}
