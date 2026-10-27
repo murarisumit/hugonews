@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ "css/sharingbuttons.css" | relURL }}" />
 
 <script src="{{ "js/utils/darkmode.js" | relURL }}"> </script>
+<script src="{{ "js/utils/code-copy.js" | relURL }}" defer></script>
 {{ range .Site.Params.custom_css -}}
     <link rel="stylesheet" href="{{ . | relURL }}">
 {{- end }}

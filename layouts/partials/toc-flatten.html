@@ -1,0 +1,8 @@
+{{- /* Flatten .Fragments.Headings into a list, skipping the empty
+       placeholder nodes Hugo adds when levels are skipped (e.g. ### only). */ -}}
+{{- $out := slice -}}
+{{- range . -}}
+  {{- if .ID }}{{ $out = $out | append (dict "id" .ID "title" .Title "level" .Level) }}{{ end -}}
+  {{- with .Headings }}{{ $out = $out | append (partial "toc-flatten.html" .) }}{{ end -}}
+{{- end -}}
+{{- return $out -}}

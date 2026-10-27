@@ -1,5 +1,8 @@
 <header id="header">
-    <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    {{- /* Site name is the <h1> only on the home page; elsewhere the page title is. */}}
+    {{ if .IsHome }}<h1 class="site-title">{{ else }}<p class="site-title">{{ end -}}
+    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    {{- if .IsHome }}</h1>{{ else }}</p>{{ end }}
     <nav>
         <ul>
 	    <li><a id="color-mode-toggle" class="fal fa-moon-o">&#9775</a> </li>
