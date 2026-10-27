@@ -331,46 +331,37 @@ html {
     text-decoration: underline;
 }
 
-.toc summary:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: -3px;   /* inset: the box clips anything outside */
-    border-radius: 0.4rem;
-}
-
-/* Wide screens: a sticky toggle beside the text, closed by default.
-   Opening it narrows the text so the list still fits inside #main. */
 @media (min-width: 1200px) {
     .single:has(> .toc) {
         position: relative;
-        max-width: min(46rem, calc(100% - 13rem));
-        margin-left: 0;
-    }
-    .single:has(> .toc details[open]) {
         max-width: calc(100% - 16rem);  /* text + sidebar fit inside #main */
+        margin-left: 0;
     }
     .single > .toc {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 100%;
-        width: 11rem;
-        margin: 0 0 0 1rem;
-    }
-    .single > .toc:has(details[open]) {
         width: 13rem;
-        margin-left: 1.5rem;
+        margin: 0 0 0 1.5rem;
     }
     .single > .toc details {
         position: sticky;
         top: 4rem;
-        width: fit-content;
-        max-width: 100%;
-        box-sizing: border-box;
         max-height: calc(100vh - 5rem);
         overflow-y: auto;
+        border: 0 !important;
+        background: none !important;
+        padding: 0 !important;
     }
-    .single > .toc details[open] {
-        width: 100%;
+    .single > .toc summary {
+        pointer-events: none;   /* always open on wide screens */
+        margin: 0 0 0.3rem;
+        padding: 0;
+        border: 0 !important;
+    }
+    .single > .toc summary:before {
+        display: none;
     }
 }
 
