@@ -1,6 +1,6 @@
 {{- /* "On this page" list. Shown on posts with 3+ sections unless the
-       front matter sets `toc: false`. Folded on small screens, sticky
-       sidebar on wide ones. */ -}}
+       front matter sets `toc: false`. Starts folded; on wide screens it
+       is a sticky toggle beside the text. */ -}}
 {{- if ne .Params.toc false -}}
 {{- $all := partial "toc-flatten.html" .Fragments.Headings -}}
 {{- $min := 7 -}}
@@ -17,12 +17,5 @@
     </ol>
   </details>
 </nav>
-<script>
-  (function () {
-    var d = document.getElementById('toc-details'), mq = matchMedia('(min-width: 1200px)');
-    function sync() { d.open = mq.matches; }
-    sync(); mq.addEventListener('change', sync);
-  })();
-</script>
 {{- end -}}
 {{- end -}}
