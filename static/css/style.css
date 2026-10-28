@@ -366,13 +366,16 @@ html {
     padding-top: 2rem !important;   /* room for the label and button */
 }
 
-/* ---------- Post tags: rounded tag buttons, as plain links ---------- */
+/* ---------- Post tags: small pill buttons, as plain links ---------- */
 a.tag-link {
     display: inline-block;
-    padding: 2px 7px;
+    padding: 1px 8px;
+    margin: 0 2px 2px 0;
     border: 1px solid #cdcdcd;
-    border-radius: 3px;
+    border-radius: 999px;
     background-color: #ebebeb;
+    font-size: 0.85em;
+    line-height: 1.45;
 }
 a.tag-link:focus-visible {
     outline: 2px solid #1a56db;
