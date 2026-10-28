@@ -4,7 +4,9 @@
     Published:&nbsp;&nbsp; {{ .PublishDate | time.Format ":date_long" }} <br/>
     <br/>
     <i> Tags:</i> {{ range $key, $value := .Params.tags }}
-    <button disabled="disabled"> <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></button>
+    {{- $href := printf "%s%s" ("/tags/" | relLangURL) (. | urlize) }}
+    {{- with or (site.GetPage (printf "/tags/%s" (. | urlize))) (site.GetPage (printf "/tags/%s" .)) }}{{ $href = .RelPermalink }}{{ end }}
+    <a class="tag-link" href="{{ $href }}">{{ . }}</a>
     {{ end }}
     <hr>
 </div>
